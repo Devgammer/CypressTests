@@ -1,3 +1,4 @@
 node_modules
-e2e/screenshots
-e2e/video
+cypress/screenshots
+cypress/video
+ 
