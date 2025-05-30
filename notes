@@ -38,3 +38,12 @@ cy.log('Massage:' + textFromElement);
  cy.get('header').find('button'); 
  cy.get('nav').find('button'); 
  })  поиск по дочерним элементам первого уровня вложенностиы
+
+
+describe('Multiply elements', () => {
+   it('first,last', () => {  
+ cy.get('.social_element').first(); 
+  cy.get('.social_element').last(); 
+ })
+
+ })
