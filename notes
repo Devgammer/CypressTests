@@ -1,0 +1,49 @@
+/// <reference types="cypress" />
+
+describe('search elements', () => {
+  beforeEach(() => {
+
+    cy.visit('/')
+  })
+
+  it('by CSS selector', () => {   
+ cy.get('h1');
+    })
+
+     it('by find', () => {   
+//  cy.contains('Do more!');
+// cy.get('Button').contains('About');
+cy.get('header').find('Button');
+    })
+   it.only('then', () => {   
+ cy.get('h1').invoke('text').then((textFromElement) => {
+cy.log('Massage:' + textFromElement);
+ })
+    })
+
+
+})
+    // cy.visit('https://qauto.forstudy.space', {
+    //         auth: {
+    //             username: 'guest',
+    //             password: 'welcome2qauto',
+    //         },      
+    //     })
+ 
+// cy.contains('button', 'About'); поиск кнопки с таким текстом
+ it('by find', () => {   
+ cy.get('header').find('button'); 
+ })  фильтрация в дочерних элементах
+  it('by find', () => {   
+ cy.get('header').find('button'); 
+ cy.get('nav').find('button'); 
+ })  поиск по дочерним элементам первого уровня вложенностиы
+
+
+describe('Multiply elements', () => {
+   it('first,last', () => {  
+ cy.get('.social_element').first(); 
+  cy.get('.social_element').last(); 
+ })
+
+ })
