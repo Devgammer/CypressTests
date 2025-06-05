@@ -7,7 +7,7 @@ describe("Name field tests", () => {
     cy.get(".modal-content").should("be.visible");
   });
 
-  it("Focus", () => {
+  it("Empty field", () => {
     cy.get("#signupName").should("have.value", "");
   });
 
@@ -44,16 +44,17 @@ describe("Name field tests", () => {
 describe("Last name field tests", () => {
   beforeEach(() => {
     cy.visit("/");
-    cy.get("button.hero-descriptor_btn.btn.btn-primary").click();
+        cy.get("button.hero-descriptor_btn.btn.btn-primary").click();
     cy.get(".modal-content").should("be.visible");
   });
 
-  it("Focus", () => {
+  it("Empty field", () => {
     cy.get("#signupLastName").should("have.value", "");
   });
 
-  it("Valid Last name", () => {
+  it.only("Valid Last name", () => {
     const validLastName = "Петров";
+     cy.get("#signupLastName").focus().blur();
     cy.get("#signupLastName").clear().type(validLastName);
     cy.get("#signupLastName").should("have.value", validLastName);
   });
@@ -145,7 +146,27 @@ describe("Re-enter Password field tests", () => {
     cy.visit("/");
     cy.get("button.hero-descriptor_btn.btn.btn-primary").click();
     cy.get(".modal-content").should("be.visible");
+      });
+
+it.only('Missing integer', () => {
+    const passwordField = '#signupPassword';
+    
+    const passwordsWithoutInteger = [
+      'Password',
+      'TestPass',
+      'MyPassword',
+      'HelloWorld'
+    ];
+
+    passwordsWithoutInteger.forEach(password => {
+      cy.get(passwordField).clear().type(password);
+      
+          cy.get('body').click();
+    
+      cy.get(passwordField).should('have.class', 'is-invalid');
+    });
   });
+
   it("Focus", () => {
     cy.get('input[name="password"]').type("MyStrongPassword123");
     cy.get("#signupRepeatPassword").focus().blur();
@@ -166,3 +187,5 @@ describe("Re-enter Password field tests", () => {
     cy.get("#signupRepeatPassword").should("have.class", "is-invalid");
   });
 });
+
+
