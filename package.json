@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:mainConfig": "npx cypress run --config-file cypress.config.js", 
+    "test:mainConfig": "npx cypress run --config-file cypress.config.js",
     "test:secondConfig": "npx cypress run --config-file cypress.config2.js"
   },
   "repository": {
@@ -61,6 +61,7 @@
     "common-tags": "^1.8.2",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.6",
+    "cypress-plugin-api": "^2.11.2",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.13",
     "debug": "^4.4.1",
